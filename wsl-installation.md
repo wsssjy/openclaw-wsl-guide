@@ -209,8 +209,8 @@ C:\Users\<您的用户名>\
 networkingMode=mirrored
 # 启用 DNS 隧道，防止 VPN 环境下域名解析失效
 dnsTunneling=true
-# 强制 WSL 使用 Windows 的 HTTP 代理设置
-autoProxy=true
+# 不强制 WSL 使用 Windows 的 HTTP 代理设置
+autoProxy=false
 # 启用集成防火墙支持
 firewall=true
 
