@@ -265,11 +265,14 @@ ping 192.168.1.1
 对于 WSL2 镜像网络模式，推荐使用标准的 Windows 防火墙命令：
 
 ```powershell
-# 创建入站防火墙规则，允许 OpenClaw 服务端口
+# 创建入站防火墙规则，允许 OpenClaw 服务端口/ubuntu ssh服务端口
 New-NetFirewallRule -DisplayName "OpenClaw-Service" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 18789
+New-NetFirewallRule -DisplayName "WSL SSH 22" -Direction Inbound -LocalPort 22 -Protocol TCP -Action Allow
+
 
 # 验证规则是否创建成功
 Get-NetFirewallRule -DisplayName "OpenClaw-Service" | Format-Table
+Get-NetFirewallRule -DisplayName "WSL SSH 22" | Format-Table
 ```
 
 #### 方法二：Hyper-V 防火墙命令（需要动态获取 VMCreatorId）
